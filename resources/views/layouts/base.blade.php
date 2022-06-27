@@ -32,28 +32,39 @@
 
 	<div class="topbar stick">
 		<div class="logo">
-			<p style="color:black"><b><h3><a href="{{ route ('homeVacancier') }}" title="Home">BetterliDays</a></h3></b></p>
+			<p style="color:black"><b><h3><a href="#" title="Home">BetterliDays</a></h3></b></p>
+			
 		</div>
 		
-		<div class="top-area">
+		
+		
 			
-			<ul class="setting-area">
-				<li>
-				<a href="{{ route ('homeVacancier') }}" title="Home">Accueil</a>
-				</li>
+		<div class="top-area">
+			<ul class="main-menu">
+				
 				@role('organisme')
 				<li>
-					<a href="#" title="">Annonces</a>
+					<a href="{{ route ('homeOrganisme') }}" title="">Accueil</a>
 					
 				</li>
-                @endrole
-
-                @role('vacancier')
 				<li>
-					<a href="{{route ('vuepostulationVacancier') }}">Postulations</a>
+					<a href="{{route('vuepostulationOrganisme')}}" title="">Postulations</a>
 					
 				</li>
-                @endrole
+				@endrole
+				@role('vacancier')
+				<li>
+					<a href="{{ route ('homeVacancier') }}" title="">Accueil</a>
+					
+				</li>
+				<li>
+					<a href="{{route ('vuepostulationVacancier') }}" title="">Postulations</a>
+					
+				</li>
+				@endrole
+			</ul>
+			<ul class="setting-area">
+				
 				<li>
 					<a href="#" title="Rechercher" data-ripple=""><i class="fas fa-search fa-sm"></i></a>
 					<div class="searched">

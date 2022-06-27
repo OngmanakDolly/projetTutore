@@ -24,45 +24,12 @@ BetterliDays | Accueil
 												<img src="images/resources/admin2.jpg" alt="">
 											</figure>
 											<div class="newpst-input">
-												<form method="post">
-													
-													<textarea rows="2" placeholder="Description"></textarea>
-													<div class="attachments">
-														<ul>
-															<li>
-																<i class="fa fa-music"></i>
-																<label class="fileContainer">
-																	<input type="file">
-																</label>
-															</li>
-															<li>
-																<i class="fa fa-image"></i>
-																<label class="fileContainer">
-																	<input type="file">
-																</label>
-															</li>
-															<li>
-																<i class="fa fa-video-camera"></i>
-																<label class="fileContainer">
-																	<input type="file">
-																</label>
-															</li>
-															<li>
-																<i class="fa fa-camera"></i>
-																<label class="fileContainer">
-																	<input type="file">
-																</label>
-															</li>
-															<li>
-																<button type="submit">Publish</button>
-															</li>
-														</ul>
-													</div>
-												</form>
+											<h4><a style="color: #007bff;text-align:justify">{{$annonce->title}}</a></h4>
+												
 											</div>
 										</div>
 									</div><!-- add post new box -->
-                                    <h3><a style="color: #007bff;">{{$annonce->title}}</a></h3>
+                                    
                                     @foreach($postulations as $postulation)
 									<div class="central-meta item">
 										<div class="user-post">
@@ -78,12 +45,21 @@ BetterliDays | Accueil
                                                 
                                                 <div class="we-video-info">
 														<ul>
+															@if($postulation->etat=='accord')
 															<li>
 																<span>
-                                                                <a href="#" class="btn btn-danger btn-user btn-block">Supprimer</a>
+                                                                <a href="{{route('chat')}}" class="btn btn-primary btn-user btn-block">Contacter</a>
 																	
 																</span>
 															</li>
+															@else
+															<li>
+																<span>
+                                                                <a href="{{route('accepter',['id'=> $postulation->id])}}" class="btn btn-success btn-user btn-block">Accepter</a>
+																	
+																</span>
+															</li>
+															@endif
 															
 														</ul>
 													</div>
@@ -91,7 +67,7 @@ BetterliDays | Accueil
 												
 											</div>
 										</div>
-                                        <span>envoyé {{Carbon\Carbon::parse($postulation->created_at)->diffForHumans() }} @role('organisme') par @endrole</span>
+                                        <span>envoyé {{Carbon\Carbon::parse($postulation->created_at)->diffForHumans() }} </span>
 												<div class="detail">
                                                 
 													

@@ -62,6 +62,7 @@ Route::post('vacancier/postulation/{id}',[App\Http\Controllers\postulation\Postu
 Route::get('vacancier/postulation/vue',[App\Http\Controllers\postulation\PostulationController::class, 'storeVacancier'])->name('vuepostulationVacancier')->middleware('role:vacancier');
 Route::get('organisme/postulation/vue',[App\Http\Controllers\postulation\PostulationController::class, 'storeOrganisme'])->name('vuepostulationOrganisme')->middleware('role:organisme');
 Route::get('organisme/postulation/annonce/{id}',[App\Http\Controllers\postulation\PostulationController::class, 'seePostByAd'])->name('seePostByAd')->middleware('role:organisme');
+Route::get('organisme/postulation/accepter/annonce/{id}',[App\Http\Controllers\postulation\PostulationController::class, 'accepter'])->name('accepter')->middleware('role:organisme');
 
 //Profil
 Route::post('vacancier/enregistrement-profile',[App\Http\Controllers\profile\ProfileController::class, 'storeProfilVacancier'])->name('vacancierSaveProfil')->middleware('role:vacancier|organisme');
@@ -73,5 +74,6 @@ Route::get('vue-profile/{id}',[App\Http\Controllers\profile\ProfileController::c
 //Route::get('organisme/edit-profile',[App\Http\Controllers\profile\ProfileController::class, 'editProfilOrganisme'])->name('vacancierEditProfil')->middleware('role:organisme');
 //Route::get('organisme/show-profile',[App\Http\Controllers\profile\ProfileController::class, 'showProfilOrganisme'])->name('vacancierShowProfil')->middleware('role:organisme');
 
-
+//Chat
+Route::get('organisme/chat',[App\Http\Controllers\profile\ChatController::class, 'chat'])->name('chat')->middleware('role:vacancier|organisme');
 

@@ -44,4 +44,11 @@ class PostulationController extends Controller
         return view('postulation/seePostByAd', ['postulations' => $postulations],['annonce' => $annonce]);
     }
 
+    public function accepter($id)
+    {
+        $postulation=postulation::find($id);
+        DB::table('postulations')->where('id', $id)->update(['etat' => 'accord']);
+        return view('chat/conversation');
+    }
+
 }

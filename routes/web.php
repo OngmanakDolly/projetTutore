@@ -1,11 +1,22 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\ConversationsController;
+use App\Http\Controllers\admin\HomeAdminController;
+use App\Http\Controllers\admin\OrganismeController;
+use App\Http\Controllers\admin\VacancierController;
+use App\Http\Controllers\annonce\AnnonceController;
+use App\Http\Controllers\profile\ProfileController;
+use App\Http\Controllers\admin\AdministrateurController;
+use App\Http\Controllers\organisme\HomeOrganismeController;
+use App\Http\Controllers\SearchVaccaController;
+use App\Http\Controllers\postulation\PostulationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +73,6 @@ Route::post('vacancier/postulation/{id}',[App\Http\Controllers\postulation\Postu
 Route::get('vacancier/postulation/vue',[App\Http\Controllers\postulation\PostulationController::class, 'storeVacancier'])->name('vuepostulationVacancier')->middleware('role:vacancier');
 Route::get('organisme/postulation/vue',[App\Http\Controllers\postulation\PostulationController::class, 'storeOrganisme'])->name('vuepostulationOrganisme')->middleware('role:organisme');
 Route::get('organisme/postulation/annonce/{id}',[App\Http\Controllers\postulation\PostulationController::class, 'seePostByAd'])->name('seePostByAd')->middleware('role:organisme');
-Route::get('organisme/postulation/accepter/annonce/{id}',[App\Http\Controllers\postulation\PostulationController::class, 'accepter'])->name('accepter')->middleware('role:organisme');
 
 //Profil
 Route::post('vacancier/enregistrement-profile',[App\Http\Controllers\profile\ProfileController::class, 'storeProfilVacancier'])->name('vacancierSaveProfil')->middleware('role:vacancier|organisme');
@@ -77,3 +87,8 @@ Route::get('vue-profile/{id}',[App\Http\Controllers\profile\ProfileController::c
 //Chat
 Route::get('organisme/chat',[App\Http\Controllers\profile\ChatController::class, 'chat'])->name('chat')->middleware('role:vacancier|organisme');
 
+//chat
+Route::get('/conversations/{user}', [App\Http\Controllers\ConversationsController::class, 'chat'])->name('conversations.chat')->middleware('role:organisme');
+Route::post('/conversations/{user}', [App\Http\Controllers\ConversationsController::class, 'store'])->name('store');
+Route::get('organisme/postulation/accepter/annonce/{id}',[App\Http\Controllers\ConversationsController::class, 'accepter'])->name('accepter');
+Route::get('/search', [App\Http\Controllers\SearchVaccaController::class, 'search'])->name('vaccancier.search')->middleware('role:organisme');

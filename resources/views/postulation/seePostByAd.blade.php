@@ -48,14 +48,14 @@ BetterliDays | Accueil
 															@if($postulation->etat=='accord')
 															<li>
 																<span>
-                                                                <a href="{{route('chat')}}" class="btn btn-primary btn-user btn-block">Contacter</a>
+                                                                <a href="{{ route('conversations.chat', $postulation->user_id) }}" class="btn btn-primary btn-user btn-block">Contacter</a>
 																	
 																</span>
-															</li>
+															</li>	
 															@else
 															<li>
 																<span>
-                                                                <a href="{{route('accepter',['id'=> $postulation->id])}}" class="btn btn-success btn-user btn-block">Accepter</a>
+                                                                <a href="{{ route('accepter', $postulation->id) }}" class="btn btn-success btn-user btn-block">Accepter</a>
 																	
 																</span>
 															</li>

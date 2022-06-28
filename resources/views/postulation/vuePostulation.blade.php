@@ -24,31 +24,13 @@ BetterliDays | Accueil
 												<img src="images/resources/admin2.jpg" alt="">
 											</figure>
 											<div class="newpst-input">
-												<form method="post">
-													
+												
+											<form >
 													<textarea rows="2" placeholder="Description"></textarea>
 													<div class="attachments">
 														<ul>
 															<li>
-																<i class="fa fa-music"></i>
-																<label class="fileContainer">
-																	<input type="file">
-																</label>
-															</li>
-															<li>
 																<i class="fa fa-image"></i>
-																<label class="fileContainer">
-																	<input type="file">
-																</label>
-															</li>
-															<li>
-																<i class="fa fa-video-camera"></i>
-																<label class="fileContainer">
-																	<input type="file">
-																</label>
-															</li>
-															<li>
-																<i class="fa fa-camera"></i>
 																<label class="fileContainer">
 																	<input type="file">
 																</label>

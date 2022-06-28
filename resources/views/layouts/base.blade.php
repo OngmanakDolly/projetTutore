@@ -66,11 +66,13 @@
 			<ul class="setting-area">
 				
 				<li>
-					<a href="#" title="Rechercher" data-ripple=""><i class="fas fa-search fa-sm"></i></a>
+					<a href="#" title="Rechercher" data-ripple="">
+						<i class="fas fa-search fa-sm"></i>
+					</a>
 					<div class="searched">
-						<form method="post" class="form-search">
-							<input type="text" placeholder="Search Friend">
-							<button data-ripple><i class="fas fa-search fa-sm"></i></button>
+						<form method="" action="{{ route('vaccancier.search') }}" class="form-search">
+							<input type="search" name="search" id="search" placeholder="Rechercher ici..." value=" {{request()->search ? : ''}}">
+							<button data-ripple type="submit"> <i class="fas fa-search fa-sm"></i></button>
 						</form>
 					</div>
 				</li>
@@ -249,7 +251,7 @@
                                                      document.getElementById('logout-form').submit();">Quitter</a>
                                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
-                                    </form>
+                     </form>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ BetterliDays | Accueil
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row merged20" id="page-contents">
-							<div class="col-lg-3">
+							<div class="col-lg-3 .position-static">
 								<aside class="sidebar static">
 									<div class="widget">
 										<h4 class="widget-title">Discussions</h4>
@@ -281,7 +281,7 @@ BetterliDays | Accueil
 									
 								</div>
 							</div><!-- centerl meta -->
-							<div class="col-lg-3">
+							<div class="col-lg-3 .position-static">
 								<aside class="sidebar static">
                                    
 									<div class="widget">
@@ -343,7 +343,7 @@ BetterliDays | Accueil
                         </div>
 						
                         <div class="row mb-3">
-<div class="col-md-12">
+						<div class="col-md-12">
                                 <input id="password" placeholder="Duree" type="text" class="form-control @error('duree') is-invalid @enderror" name="duree" required autocomplete="duree">
 
                                 @error('duree')
